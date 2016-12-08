@@ -1,19 +1,39 @@
 window.addEventListener("load", setTimeToLive);
+var monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 function getYear() {
     var date = new Date();
     var year = date.getFullYear();
     return year;
 }
+
 function getDate() {
     var date = new Date();
     var day = date.getDate();
     return day;
 }
+
 function getMonth() {
     var date = new Date();
     var month = date.getMonth() + 1;
     return month;
+}
+
+function getSubMonths() {
+    var mm = getMonth();
+    var days = 0;
+    
+    for(var i = 0; i < (mm - 1) ; i++){
+        days += monthDays[i];
+    }
+    
+    return days;
+}
+
+function getSubTime(){
+    var time = 0;
+    
+    return time;
 }
 
 function setTimeToLive() {
@@ -43,6 +63,12 @@ function setTimeToLive() {
     totalDays = years * 365;            // Does not include leap yrs
     avgLife = avgLife * 365;
     daysLeft = avgLife - totalDays;
-
-    days.innerHTML = daysLeft + " days";
+    
+    var submonths = getSubMonths();
+    daysLeft = daysLeft - submonths;
+    daysLeft = daysLeft - date;
+    
+    days.innerHTML = daysLeft + " days";   
+    
 }
+
