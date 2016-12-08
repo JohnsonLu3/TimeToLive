@@ -1,0 +1,6 @@
+"manifest_version": 2,
+  "name": "Time To Live",
+  "version": "1.0",
+
+  "default_locale": "en",
+  "description": "A chrome new tab extension to display your approx time to live. spend it well. :)"
